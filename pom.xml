@@ -28,6 +28,8 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<faker.verison>1.0.2</faker.verison>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,6 +47,11 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>${faker.verison}</version>
 		</dependency>
 	</dependencies>
 

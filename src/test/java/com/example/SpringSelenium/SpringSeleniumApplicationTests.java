@@ -1,5 +1,6 @@
 package com.example.SpringSelenium;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +13,9 @@ class SpringSeleniumApplicationTests {
 
 	@Autowired
 	private User user;
+
+	@Autowired
+	private Faker faker;
 
 	@Value("PATH") //Bu sekilde direk icinde yazani verir String , int ...
 	private String path;
@@ -34,6 +38,7 @@ class SpringSeleniumApplicationTests {
 
 	@Test
 	void contextLoads() {
+		/*
 		user.printDetails();
 		System.out.println(this.path);//PATH
 		System.out.println(this.fruits);
@@ -41,6 +46,16 @@ class SpringSeleniumApplicationTests {
 		System.out.println(this.timeout);
 		System.out.println(this.myusername);
 		System.out.println(this.road);
+		this.user.printDetails();
+
+		 */
+
+		//Faker faker=new Faker();Bu sekilde biz urettik, bunu Autowired ile de yapabiliriz.
+
+		System.out.println(this.faker.name().firstName());
+
+
+
 
 		/*
 		Adress address = new Adress();
@@ -74,6 +89,14 @@ class SpringSeleniumApplicationTests {
 		array
 		file-path
 		default values
+		 */
+
+		/*
+		Autowired Obj From external Libraries
+
+
+
+
 		 */
 
 	}
