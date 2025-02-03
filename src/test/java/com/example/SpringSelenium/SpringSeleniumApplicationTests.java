@@ -2,17 +2,45 @@ package com.example.SpringSelenium;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 class SpringSeleniumApplicationTests {
 
 	@Autowired
 	private User user;
+
+	@Value("PATH") //Bu sekilde direk icinde yazani verir String , int ...
+	private String path;
+
+	@Value("${fruits}") //Bu sekilde ise app prop icinde veri arar.
+	private String fruits;//value da ki deger app.prop icinde
+
+	@Value("${fruits}")
+	private List<String> fruitss;
+
+	@Value("${timeout}")
+	private int timeout;
+
+	@Value("${myusername}")
+	private String myusername;
+
+	@Value("${TEST_URL:https://www.google.com}") //default veri , eger app pro de yoksa bunu verir
+	private String road;
+
+
 	@Test
 	void contextLoads() {
 		user.printDetails();
-
+		System.out.println(this.path);//PATH
+		System.out.println(this.fruits);
+		System.out.println(this.fruitss.size());
+		System.out.println(this.timeout);
+		System.out.println(this.myusername);
+		System.out.println(this.road);
 
 		/*
 		Adress address = new Adress();
@@ -31,6 +59,22 @@ class SpringSeleniumApplicationTests {
         Spring, uygun bean'i (nesneyi) bulur ve enjekte eder.
 		 */
 
+		/*
+		Salary (@Component)
+		Adress (Component)   -->User (Component)<--Test Class(Autowired)
+		 */
+
+		/*
+		@Value
+
+		primitive
+		properties
+		env variables
+		url
+		array
+		file-path
+		default values
+		 */
 
 	}
 
